@@ -1,0 +1,8 @@
+start
+  var a,b;
+  a >> 1;
+  b >> 5;
+  start_for a >> 1 until 10 do
+    log(a)
+  end_for
+end

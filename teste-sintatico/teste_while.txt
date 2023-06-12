@@ -1,0 +1,92 @@
+Tokens reconhecidos: 
+
+T_START ( START )
+T_VAR ( VAR )
+T_UNIQUE_IDENTIFIER ( A )
+T_VIRGULA ( , )
+T_UNIQUE_IDENTIFIER ( B )
+T_PONTO_VIRGULA ( ; )
+T_UNIQUE_IDENTIFIER ( A )
+T_SETA ( >> )
+T_NUMERO ( 1 )
+T_PONTO_VIRGULA ( ; )
+T_UNIQUE_IDENTIFIER ( B )
+T_SETA ( >> )
+T_NUMERO ( 5 )
+T_PONTO_VIRGULA ( ; )
+T_START_WHILE ( START_WHILE )
+T_UNIQUE_IDENTIFIER ( B )
+T_MAIOR ( > )
+T_UNIQUE_IDENTIFIER ( A )
+T_DO ( DO )
+T_UNIQUE_IDENTIFIER ( A )
+T_SETA ( >> )
+T_UNIQUE_IDENTIFIER ( A )
+T_MAIS ( + )
+T_NUMERO ( 1 )
+T_PONTO_VIRGULA ( ; )
+T_LOG ( LOG )
+T_ABRE_PAR ( ( )
+T_UNIQUE_IDENTIFIER ( A )
+T_FECHA_PAR ( ) )
+T_END_WHILE ( END_WHILE )
+T_END ( END )
+T_END_FONTE (  )
+
+
+Regras reconhecidas: 
+
+<UNIQUE_IDENTIFIER> ::= [A-Z]+([A-Z]_[0-9])*
+<VAR> ::= <UNIQUE_IDENTIFIER>
+<UNIQUE_IDENTIFIER> ::= [A-Z]+([A-Z]_[0-9])*
+<VAR> ::= <UNIQUE_IDENTIFIER>
+<VARS> ::= <VAR> , <VARS> | <VAR>
+<VAR_LIST> ::= 'VAR' <VARS> ';'
+<UNIQUE_IDENTIFIER> ::= [A-Z]+([A-Z]_[0-9])*
+<VARIABLE> ::= <UNIQUE_IDENTIFIER>
+<X> ::= [0-9]+('.'[0-9]+)
+<F> ::= -<F>|<X> ** <F>|<X> 
+<T> ::= <T> * <F>|<T> / <F>|<T> % <F>|<F>
+<EXP> ::= <EXP> + <T>|<EXP> - <T>|<T> 
+<METHOD_ASSIGN> ::= <VARIABLE> '>>' <EXP>
+<METHOD> ::= <METHOD_WHEN>|<METHOD_WHILE>|<METHOD_FOR>|<METHOD_ASSIGN>|<METHOD_LOG>
+<UNIQUE_IDENTIFIER> ::= [A-Z]+([A-Z]_[0-9])*
+<VARIABLE> ::= <UNIQUE_IDENTIFIER>
+<X> ::= [0-9]+('.'[0-9]+)
+<F> ::= -<F>|<X> ** <F>|<X> 
+<T> ::= <T> * <F>|<T> / <F>|<T> % <F>|<F>
+<EXP> ::= <EXP> + <T>|<EXP> - <T>|<T> 
+<METHOD_ASSIGN> ::= <VARIABLE> '>>' <EXP>
+<METHOD> ::= <METHOD_WHEN>|<METHOD_WHILE>|<METHOD_FOR>|<METHOD_ASSIGN>|<METHOD_LOG>
+<X> ::= <VAR>
+<F> ::= -<F>|<X> ** <F>|<X> 
+<T> ::= <T> * <F>|<T> / <F>|<T> % <F>|<F>
+<EXP> ::= <EXP> + <T>|<EXP> - <T>|<T> 
+<X> ::= <VAR>
+<F> ::= -<F>|<X> ** <F>|<X> 
+<T> ::= <T> * <F>|<T> / <F>|<T> % <F>|<F>
+<EXP> ::= <EXP> + <T>|<EXP> - <T>|<T> 
+<CONDITION> ::= <EXP> ('>'|'>='|'<>'|'<='|'<'|'==') <EXP> 
+<UNIQUE_IDENTIFIER> ::= [A-Z]+([A-Z]_[0-9])*
+<VARIABLE> ::= <UNIQUE_IDENTIFIER>
+<X> ::= <VAR>
+<F> ::= -<F>|<X> ** <F>|<X> 
+<T> ::= <T> * <F>|<T> / <F>|<T> % <F>|<F>
+<X> ::= [0-9]+('.'[0-9]+)
+<F> ::= -<F>|<X> ** <F>|<X> 
+<T> ::= <T> * <F>|<T> / <F>|<T> % <F>|<F>
+<EXP> ::= <EXP> + <T>|<EXP> - <T>|<T> 
+<METHOD_ASSIGN> ::= <VARIABLE> '>>' <EXP>
+<METHOD> ::= <METHOD_WHEN>|<METHOD_WHILE>|<METHOD_FOR>|<METHOD_ASSIGN>|<METHOD_LOG>
+<X> ::= <VAR>
+<F> ::= -<F>|<X> ** <F>|<X> 
+<T> ::= <T> * <F>|<T> / <F>|<T> % <F>|<F>
+<EXP> ::= <EXP> + <T>|<EXP> - <T>|<T> 
+<METHOD_LOG> ::= 'LOG' '(' <EXP> ')'
+<METHOD> ::= <METHOD_WHEN>|<METHOD_WHILE>|<METHOD_FOR>|<METHOD_ASSIGN>|<METHOD_LOG>
+<METHOD_LIST> ::= <METHOD> ; <METHOD_LIST> | <METHOD>
+<METHOD_WHILE> ::= 'START_WHILE' <CONDITION> 'DO' <METHOD_LIST> 'END_WHILE'
+<METHOD> ::= <METHOD_WHEN>|<METHOD_WHILE>|<METHOD_FOR>|<METHOD_ASSIGN>|<METHOD_LOG>
+<METHOD_LIST> ::= <METHOD> ; <METHOD_LIST> | <METHOD>
+<G> ::= 'START' <VAR_LIST> <METHOD_LIST> 'END'
+<G>

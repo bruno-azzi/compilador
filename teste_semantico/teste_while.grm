@@ -1,0 +1,9 @@
+start
+  var a,b;
+  a >> 1;
+  b >> 5;
+  start_while b > a do
+    a >> a + 1;
+    log(a)
+  end_while
+end

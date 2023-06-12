@@ -1,0 +1,8 @@
+const main = () => {
+    a = 1
+    b = 4
+    console.log(a+b)
+    
+}
+
+main()

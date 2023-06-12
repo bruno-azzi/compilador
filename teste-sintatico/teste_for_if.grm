@@ -1,0 +1,13 @@
+start
+  var a,b;
+  a >> 1;
+  b >> 5;
+  start_for a >> 1 until 5 do
+    log(a);
+    start_when (a == b)
+      log(1)
+    when_not
+      log(0)
+    end_when
+  end_for
+end

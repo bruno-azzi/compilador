@@ -1,0 +1,18 @@
+const main = () => {
+    b = 5
+    for(a = 1; a <= b; a++) {
+        switch(a) {
+            case(5):
+                console.log(1)
+                break
+            case(1):
+                console.log(0)
+                break
+            default:
+            break 
+        }
+    }
+    
+}
+
+main()
